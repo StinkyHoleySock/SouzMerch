@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "937246212945",
+    "project_id": "souzmerch",
+    "storage_bucket": "souzmerch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937246212945:android:115745f192ab0b7dce4970",
+        "android_client_info": {
+          "package_name": "com.example.souzmerch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937246212945-cvi7n9cq0qqsdj13oilcgcbn7c0sa0df.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.souzmerch",
+            "certificate_hash": "cabb4970e4574db4953972cfc4c1cfa998822ced"
+          }
+        },
+        {
+          "client_id": "937246212945-ec0o0377nrf21nvann2ciju78qvevv4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7w_gJZL7XUTEJOsthfv4xHo-3pZoRXHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937246212945-ec0o0377nrf21nvann2ciju78qvevv4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

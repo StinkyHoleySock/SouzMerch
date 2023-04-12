@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Союз Мерчендайзер</string>
+    <string name="title_register">Создать аккаунт</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="rules">Начальник</string>
+    <string name="btn_login"><u>Есть аккаунт? Войти</u></string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="forgot_password"><u>Забыли пароль?</u></string>
+    <string name="tv_btn_register"><u>Зарегистрироваться</u></string>
+    <string name="login">Войти</string>
+    <string name="homepage">Главная</string>
+    <string name="my_shops">Мои торговые точки:</string>
+    <string name="my_shops_btn">Мои магазины</string>
+    <string name="tasks_for_checking">Задания для проверки</string>
+    <string name="save_changes">Сохранить изменения?</string>
+    <string name="cancel">Отменить</string>
+    <string name="save">Сохранить</string>
+    <string name="save_task">Сохранить задание?</string>
+    <string name="product">Товар</string>
+    <string name="et_amount">Кол-во</string>
+    <string name="new_task">Новое задание</string>
+    <string name="my_tasks">Мои задания на торговой точке:</string>
+    <string name="task_name">Название:</string>
+    <string name="task_date">Дата:</string>
+    <string name="task_status">Статус:</string>
+    <string name="patronymic">Отчество</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.souzmerch.ui.fragments.loginFragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_fragmentIntermediate"
+            app:destination="@id/fragmentIntermediate" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentIntermediate"
+        android:name="com.example.souzmerch.ui.fragments.intermediateFragment.FragmentIntermediate"
+        android:label="FragmentIntermediate" >
+        <action
+            android:id="@+id/action_fragmentIntermediate_to_merchNavigationFragment"
+            app:destination="@id/merchNavigationFragment" />
+        <action
+            android:id="@+id/action_fragmentIntermediate_to_executorNavigationFragment"
+            app:destination="@id/executorNavigationFragment" />
+        <action
+            android:id="@+id/action_fragmentIntermediate_to_customerNavigationFragment"
+            app:destination="@id/customerNavigationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/merchNavigationFragment"
+        android:name="com.example.souzmerch.ui.fragments.merchNavigationFragment.MerchNavigationFragment"
+        android:label="MerchNavigationFragment" >
+        <action
+            android:id="@+id/action_merchNavigationFragment_to_missionsFragment"
+            app:destination="@id/missionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/executorNavigationFragment"
+        android:name="com.example.souzmerch.ui.fragments.executorNavigationFragment.ExecutorNavigationFragment"
+        android:label="ExecutorNavigationFragment" >
+        <action
+            android:id="@+id/action_executorNavigationFragment_to_shopsFragment"
+            app:destination="@id/shopsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerNavigationFragment"
+        android:name="com.example.souzmerch.ui.fragments.customerNavigationFragment.CustomerNavigationFragment"
+        android:label="CustomerNavigationFragment" />
+    <fragment
+        android:id="@+id/shopsFragment"
+        android:name="com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragment"
+        android:label="ShopsFragment" >
+        <action
+            android:id="@+id/action_shopsFragment_to_crateMissionFragment"
+            app:destination="@id/crateMissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crateMissionFragment"
+        android:name="com.example.souzmerch.ui.fragments.createMissionFragment.CrateMissionFragment"
+        android:label="CrateMissionFragment" >
+        <action
+            android:id="@+id/action_crateMissionFragment_to_shopsFragment"
+            app:destination="@id/shopsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/missionsFragment"
+        android:name="com.example.souzmerch.ui.fragments.missionsFragment.MissionsFragment"
+        android:label="MissionsFragment" >
+        <action
+            android:id="@+id/action_missionsFragment_to_missionDetailsFragment"
+            app:destination="@id/missionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.souzmerch.ui.fragments.registerFragment.RegisterFragment"
+        android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/missionDetailsFragment"
+        android:name="com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsFragment"
+        android:label="MissionDetailsFragment" >
+        <action
+            android:id="@+id/action_missionDetailsFragment_to_missionsFragment"
+            app:destination="@id/missionsFragment" />
+    </fragment>
+</navigation>
