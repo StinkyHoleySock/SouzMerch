@@ -1,12 +1,14 @@
 package com.example.souzmerch.ui.fragments.registerFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.souzmerch.R
+import com.example.souzmerch.data.model.User
 import com.example.souzmerch.databinding.FragmentRegisterBinding
 import com.example.souzmerch.shared.utils.ToastError.toast
 import com.google.firebase.auth.FirebaseAuth
@@ -87,23 +89,29 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 user!!.updateProfile(profileUpdates)
 
                 //Создание объекта пользователя
-//                val userToDB = User(
-//                    id = user.uid,
-//                    name = name,
-//                    surname = surname,
-//                    patronymic = patronymic,
-//                    email = email,
-//                    leader = false,
-//                    superUser = superUser,
-//                    fcmToken = ""
-//                )
+                val userToDB = User(
+                    id = user.uid,
+                    name = name,
+                    surname = surname,
+                    patronymic = patronymic,
+                    email = email,
+                    merchandiser = true,
+                    executor = false,
+                    customer = false
+                )
                 //Запись пользователя в базу данных
-//                val docRef = db.collection("user").document(userToDB.id)
-//                docRef.set(userToDB)
-//                    .addOnSuccessListener { Log.d("develop", "User saved successfully") }
-//                    .addOnFailureListener { e -> Log.e("develop", "Error saving user", e) }
-
-//                findNavController().navigate(R.id.action_registerFragment_to_navigationFragment)
+                val docRef = db.collection("user").document(userToDB.id)
+                docRef.set(userToDB)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "Успешная регистрация!", Toast.LENGTH_SHORT)
+                            .show()
+                        Log.d("develop", "User saved successfully")
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(requireContext(), "Ошибка регистрации!", Toast.LENGTH_SHORT)
+                            .show()
+                        Log.e("develop", "Error saving user", e)
+                    }
 
             } else {
                 Toast.makeText(
@@ -113,27 +121,4 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             }
         }
     }
-
-    //Метод для проверки валидности полей
-    fun validateUser(
-        username: String,
-        surname: String,
-        email: String,
-        password: String
-    ): Boolean {
-
-        return (username.isNotEmpty() && surname.isNotEmpty()
-                && email.isNotEmpty() && password.isNotEmpty())
-    }
-
-    //Методы для тестирования
-    fun checkRules(isChecked: Boolean): String {
-        return if (isChecked) "Rules is accepted"
-        else "Rules not accepted"
-    }
-
-    fun validatePassword(password: String): Boolean {
-        return (password.length >= 8)
-    }
-
 }

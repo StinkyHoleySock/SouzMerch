@@ -8,7 +8,8 @@ data class Mission(
     val product: String,
     val amount: Int,
     val status: String,
-    val comment: String?
+    val comment: String?,
+    val shopId: String
 ) {
-    constructor() : this("", "", "", "", "", 0, "", "")
+    constructor() : this("", "", "", "", "", 0, "", "", "")
 }

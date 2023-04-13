@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/crateMissionFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -56,11 +56,12 @@
     </fragment>
     <fragment
         android:id="@+id/crateMissionFragment"
-        android:name="com.example.souzmerch.ui.fragments.createMissionFragment.CrateMissionFragment"
+        android:name="com.example.souzmerch.ui.fragments.createMissionFragment.CreateMissionFragment"
         android:label="CrateMissionFragment" >
         <action
             android:id="@+id/action_crateMissionFragment_to_shopsFragment"
             app:destination="@id/shopsFragment" />
+        <argument android:name="shopId" />
     </fragment>
     <fragment
         android:id="@+id/missionsFragment"
