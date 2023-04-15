@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/crateMissionFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -10,7 +10,9 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_fragmentIntermediate"
-            app:destination="@id/fragmentIntermediate" />
+            app:destination="@id/fragmentIntermediate"
+            app:popUpTo="@id/fragmentIntermediate"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragmentIntermediate"
@@ -25,6 +27,18 @@
         <action
             android:id="@+id/action_fragmentIntermediate_to_customerNavigationFragment"
             app:destination="@id/customerNavigationFragment" />
+        <argument
+            android:name="merch"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <argument
+            android:name="executor"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="customer"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/merchNavigationFragment"
@@ -61,7 +75,10 @@
         <action
             android:id="@+id/action_crateMissionFragment_to_shopsFragment"
             app:destination="@id/shopsFragment" />
-        <argument android:name="shopId" />
+        <argument android:name="shopId"
+            app:argType="string" />
+        <argument android:name="merch"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/missionsFragment"
@@ -70,6 +87,9 @@
         <action
             android:id="@+id/action_missionsFragment_to_missionDetailsFragment"
             app:destination="@id/missionDetailsFragment" />
+        <argument
+            android:name="shopId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -82,5 +102,7 @@
         <action
             android:id="@+id/action_missionDetailsFragment_to_missionsFragment"
             app:destination="@id/missionsFragment" />
+        <argument android:name="missionId"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -23,40 +23,47 @@
             android:layout_marginTop="8dp"
             android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_task"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/product_task"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_product"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_weight="0.75"
-                android:focusable="false"
-                android:hint="@string/product">
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="20sp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_task"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+        </LinearLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_amount"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/amount"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="0.25"
-                android:focusable="false"
-                android:hint="@string/et_amount">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_amount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -81,13 +88,29 @@
             android:textSize="18sp"
             tools:text="Задание принято в работу 19.03.2023 в 14.10" />
 
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textSize="18sp"
+            tools:text="Нужно сделать новую фотографию" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="4dp"
             android:background="#673AB7"
+            android:textColor="@color/white"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:text="@string/save" />
 

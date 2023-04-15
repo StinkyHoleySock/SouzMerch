@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
 //Базовый фрагмент для сокращения кода в однотипной инициализации viewBinding
@@ -22,6 +24,7 @@ abstract class BaseFragment<T : ViewBinding>(
     ): View? {
 
         _binding = bindingInflater.invoke(inflater)
+
         return binding.root
     }
 }

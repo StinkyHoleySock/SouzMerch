@@ -62,6 +62,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             email, password
         ).addOnCompleteListener { task ->
             if (task.isSuccessful) {
+                val action = LoginFragmentDirections.actionLoginFragmentToFragmentIntermediate()
                 findNavController().navigate(R.id.action_loginFragment_to_fragmentIntermediate)
             } else {
                 Toast.makeText(
@@ -70,13 +71,5 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 ).show()
             }
         }
-    }
-    //Методы для тестирования
-    fun validateUser(email: String, password: String): Boolean {
-        return (email.isNotEmpty() && password.isNotEmpty() && password.length >= 8)
-    }
-
-    fun isEmailValid(email: String): Boolean {
-        return email.contains("mail", false)
     }
 }

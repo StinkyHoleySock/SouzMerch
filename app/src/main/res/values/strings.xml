@@ -28,4 +28,6 @@
     <string name="task_date">Дата:</string>
     <string name="task_status">Статус:</string>
     <string name="patronymic">Отчество</string>
+    <string name="product_task">Товар:</string>
+    <string name="amount">Количество:</string>
 </resources>
