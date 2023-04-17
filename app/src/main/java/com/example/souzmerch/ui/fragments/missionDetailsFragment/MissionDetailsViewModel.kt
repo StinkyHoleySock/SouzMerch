@@ -57,4 +57,15 @@ class MissionDetailsViewModel : ViewModel() {
                 Log.e("updateStatus", "Error updating mission $missionId status", e)
             }
     }
+
+    fun updateMissionComment(missionId: String, newComment: String) {
+        db.collection("mission").document(missionId)
+            .update("comment", newComment)
+            .addOnSuccessListener {
+                Log.d("updateMissionComment", "Comment updated successfully")
+            }
+            .addOnFailureListener { e ->
+                Log.e("updateMissionComment", "Error updating comment", e)
+            }
+    }
 }

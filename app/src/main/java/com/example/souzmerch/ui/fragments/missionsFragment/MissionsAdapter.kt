@@ -1,5 +1,6 @@
 package com.example.souzmerch.ui.fragments.missionsFragment
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -31,10 +32,22 @@ class MissionsAdapter(
 
 
             when (mission.status) {
-                MissionState.CREATE.name -> {binding.tvTaskStatus.text = "Создано"}
-                MissionState.PROGRESS.name -> {binding.tvTaskStatus.text = "Принято"}
-                MissionState.VERIFICATION.name -> {binding.tvTaskStatus.text = ""}
-                MissionState.COMPLETE.name -> {binding.tvTaskStatus.text = mission.status}
+                MissionState.CREATE.name -> {
+                    binding.tvTaskStatus.text = "Создано"
+                    binding.tvTaskStatus.setTextColor(Color.BLUE)
+                }
+                MissionState.PROGRESS.name -> {
+                    binding.tvTaskStatus.text = "В работе"
+                    binding.tvTaskStatus.setTextColor(Color.RED)
+                }
+                MissionState.VERIFICATION.name -> {
+                    binding.tvTaskStatus.text = "На проверке"
+                    binding.tvTaskStatus.setTextColor(Color.YELLOW)
+                }
+                MissionState.COMPLETE.name -> {
+                    binding.tvTaskStatus.text = "Выполнено"
+                    binding.tvTaskStatus.setTextColor(Color.GREEN)
+                }
             }
 
             binding.root.setOnClickListener {

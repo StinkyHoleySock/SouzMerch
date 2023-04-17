@@ -25,7 +25,7 @@
         <ImageView
             android:id="@+id/iv_report"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,37 +86,29 @@
             android:text="@string/save_task"
             android:textSize="20sp" />
 
-        <LinearLayout
-            android:id="@+id/ll_save"
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#FB0000"
+            android:padding="8dp"
+            android:text="@string/add_comment" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_cancel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"
-                android:layout_weight="1"
-                android:background="#FB0000"
-                android:padding="8dp"
-                android:text="@string/cancel" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_approve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#37FF00"
+            android:padding="8dp"
+            android:text="@string/approve" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"
-                android:layout_weight="1"
-                android:background="#37FF00"
-                android:padding="8dp"
-                android:text="@string/save" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

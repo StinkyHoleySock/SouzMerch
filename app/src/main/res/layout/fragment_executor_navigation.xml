@@ -27,7 +27,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_tasks"

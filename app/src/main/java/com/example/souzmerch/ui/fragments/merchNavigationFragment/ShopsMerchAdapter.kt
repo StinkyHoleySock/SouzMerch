@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.souzmerch.data.model.Shop
 import com.example.souzmerch.databinding.ItemSimpleTextBinding
-import com.example.souzmerch.ui.fragments.shopsFragment.ShopsAdapter
 
 class ShopsMerchAdapter(
     private val shopClickListener: (shop: Shop) -> Unit

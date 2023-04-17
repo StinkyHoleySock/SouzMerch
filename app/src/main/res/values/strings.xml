@@ -30,4 +30,10 @@
     <string name="patronymic">Отчество</string>
     <string name="product_task">Товар:</string>
     <string name="amount">Количество:</string>
+    <string name="accepted">Принято:</string>
+    <string name="missions_to_verification">Задания для проверки</string>
+    <string name="comment">Комментарий</string>
+    <string name="add_comment">Оставить комментарий</string>
+    <string name="approve">Принять задачу</string>
+    <string name="comment_text">Комментарий:</string>
 </resources>

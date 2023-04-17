@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.souzmerch.R
+import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.data.model.Mission
 import com.example.souzmerch.databinding.FragmentCreateMissionBinding
 import com.example.souzmerch.shared.utils.ToastError
@@ -22,7 +25,6 @@ class CreateMissionFragment :
         binding.btnSave.setOnClickListener {
 
             when {
-                //Валидация полей
                 binding.etTask.text.toString().isEmpty() -> ToastError.toast(
                     requireActivity(),
                     binding.tilTask
@@ -32,7 +34,6 @@ class CreateMissionFragment :
                     binding.tilAmount
                 )
 
-                //Регистрация
                 else -> {
                     createTask()
                 }
@@ -51,22 +52,19 @@ class CreateMissionFragment :
             photo = null,
             product = binding.etTask.text.toString(),
             amount = binding.etAmount.text.toString().toInt(),
-            status = "Создан",
-            comment = null,
+            status = MissionState.CREATE.name,
+            comment = binding.etComment.text.toString(),
             shopId = args.shopId
         )
 
         val docRef = db.collection("mission").document(mission.id)
         docRef.set(mission)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Успешная регистрация!", Toast.LENGTH_SHORT)
-                    .show()
-                Log.d("develop", "User saved successfully")
+                Toast.makeText(requireContext(), "Успешно загружено!", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_crateMissionFragment_to_shopsFragment)
             }
             .addOnFailureListener { e ->
-                Toast.makeText(requireContext(), "Ошибка регистрации!", Toast.LENGTH_SHORT)
-                    .show()
-                Log.e("develop", "Error saving user", e)
+                Toast.makeText(requireContext(), "Ошибка! $e", Toast.LENGTH_SHORT).show()
             }
     }
 }

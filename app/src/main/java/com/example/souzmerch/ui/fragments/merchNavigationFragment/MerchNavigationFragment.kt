@@ -11,6 +11,7 @@ import com.example.souzmerch.data.model.Shop
 import com.example.souzmerch.databinding.FragmentMerchNavigationBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 
 class MerchNavigationFragment :
@@ -25,8 +26,7 @@ class MerchNavigationFragment :
     }
 
     private fun navigateToMissionsList(it: Shop) {
-        val action =
-            MerchNavigationFragmentDirections.actionMerchNavigationFragmentToMissionsFragment(it.id)
+        val action = MerchNavigationFragmentDirections.actionMerchNavigationFragmentToMissionsFragment(it.id)
         findNavController().navigate(action)
     }
 

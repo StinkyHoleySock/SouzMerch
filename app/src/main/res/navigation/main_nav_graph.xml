@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentIntermediate"
-        android:name="com.example.souzmerch.ui.fragments.intermediateFragment.FragmentIntermediate"
+        android:name="com.example.souzmerch.ui.fragments.intermediateFragment.IntermediateFragment"
         android:label="FragmentIntermediate" >
         <action
             android:id="@+id/action_fragmentIntermediate_to_merchNavigationFragment"
@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_executorNavigationFragment_to_shopsFragment"
             app:destination="@id/shopsFragment" />
+        <action
+            android:id="@+id/action_executorNavigationFragment_to_allMissionsFragment"
+            app:destination="@id/allMissionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/customerNavigationFragment"
@@ -74,10 +77,10 @@
         android:label="CrateMissionFragment" >
         <action
             android:id="@+id/action_crateMissionFragment_to_shopsFragment"
-            app:destination="@id/shopsFragment" />
+            app:destination="@id/shopsFragment"
+            app:popUpTo="@id/shopsFragment"
+            app:popUpToInclusive="true" />
         <argument android:name="shopId"
-            app:argType="string" />
-        <argument android:name="merch"
             app:argType="string" />
     </fragment>
     <fragment
@@ -103,6 +106,22 @@
             android:id="@+id/action_missionDetailsFragment_to_missionsFragment"
             app:destination="@id/missionsFragment" />
         <argument android:name="missionId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/allMissionsFragment"
+        android:name="com.example.souzmerch.ui.fragments.allMissionsFragment.AllMissionsFragment"
+        android:label="AllMissionsFragment" >
+        <action
+            android:id="@+id/action_allMissionsFragment_to_approveMissionFragment"
+            app:destination="@id/approveMissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/approveMissionFragment"
+        android:name="com.example.souzmerch.ui.fragments.approveMissionFragment.ApproveMissionFragment"
+        android:label="ApproveMissionFragment" >
+        <argument
+            android:name="shopId"
             app:argType="string" />
     </fragment>
 </navigation>
