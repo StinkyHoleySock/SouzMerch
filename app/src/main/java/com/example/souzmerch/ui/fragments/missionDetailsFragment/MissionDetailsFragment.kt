@@ -1,8 +1,11 @@
 package com.example.souzmerch.ui.fragments.missionDetailsFragment
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
@@ -11,6 +14,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -28,12 +32,15 @@ class MissionDetailsFragment :
 
     val args: MissionDetailsFragmentArgs by navArgs()
     var photo: String = ""
+    var userLocation: String = ""
     lateinit var missionDetailsViewModel: MissionDetailsViewModel
 
     val storageRef = Firebase.storage.reference;
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initLocationManager()
 
         val imagePickerActivityResult: ActivityResultLauncher<Intent> =
         // lambda expression to receive a result back, here we
@@ -122,17 +129,29 @@ class MissionDetailsFragment :
             when (mission?.status) {
                 MissionState.CREATE.name -> {
                     val startTime = System.currentTimeMillis().toString()
-                    missionDetailsViewModel.updateMissionStatus(
-                        args.missionId,
-                        MissionState.PROGRESS.name
-                    )
-                    mission.id.let { id ->
-                        missionDetailsViewModel.updateMissionStartTime(
-                            id,
-                            startTime
+                    if (userLocation != "") {
+
+                        missionDetailsViewModel.updateMissionStatus(
+                            args.missionId,
+                            MissionState.PROGRESS.name
                         )
+
+                        mission.id.let { id ->
+                            missionDetailsViewModel.updateMissionStartTime(
+                                id,
+                                startTime
+                            )
+                        }
+                        Log.d("develop", "loc: $userLocation")
+                        findNavController().popBackStack()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Вы не можете приступить к заданию!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        Log.d("develop", "loc: $userLocation")
                     }
-                    findNavController().popBackStack()
                 }
                 MissionState.PROGRESS.name -> {
                     binding.btnSave.setOnClickListener {
@@ -168,5 +187,29 @@ class MissionDetailsFragment :
             }
         }
         return uri.path?.lastIndexOf('/')?.let { uri.path?.substring(it) }
+    }
+
+    private fun initLocationManager() {
+        val locationManager =
+            requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if (ActivityCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Log.d("develop", "permission denied")
+            return
+        }
+
+        locationManager.requestLocationUpdates(
+            LocationManager.GPS_PROVIDER,
+            0,
+            0f
+        ) { location ->
+            userLocation = location.latitude.toString() + " " + location.longitude.toString()
+            Log.d("develop", "loc ->: $location")
+        }
     }
 }

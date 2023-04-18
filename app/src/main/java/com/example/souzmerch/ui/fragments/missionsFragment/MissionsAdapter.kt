@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.data.model.Mission
 import com.example.souzmerch.databinding.ItemMissionBinding
+import com.example.souzmerch.shared.extensions.convertLongToTime
 
 class MissionsAdapter(
     private val missionClickListener: (mission: Mission) -> Unit
@@ -28,13 +29,13 @@ class MissionsAdapter(
 
         fun bind(mission: Mission) {
             binding.tvTaskName.text = mission.product
-            binding.tvTaskDate.text = "123"
+            binding.tvTaskDate.text = mission.taskSettingTime.toLong().convertLongToTime()
 
 
             when (mission.status) {
                 MissionState.CREATE.name -> {
                     binding.tvTaskStatus.text = "Создано"
-                    binding.tvTaskStatus.setTextColor(Color.BLUE)
+                    binding.tvTaskStatus.setTextColor(Color.BLACK)
                 }
                 MissionState.PROGRESS.name -> {
                     binding.tvTaskStatus.text = "В работе"
@@ -42,7 +43,7 @@ class MissionsAdapter(
                 }
                 MissionState.VERIFICATION.name -> {
                     binding.tvTaskStatus.text = "На проверке"
-                    binding.tvTaskStatus.setTextColor(Color.YELLOW)
+                    binding.tvTaskStatus.setTextColor(Color.BLACK)
                 }
                 MissionState.COMPLETE.name -> {
                     binding.tvTaskStatus.text = "Выполнено"

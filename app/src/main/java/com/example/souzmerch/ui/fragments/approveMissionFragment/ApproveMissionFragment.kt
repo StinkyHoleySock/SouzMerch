@@ -1,15 +1,21 @@
 package com.example.souzmerch.ui.fragments.approveMissionFragment
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.databinding.FragmentApproveMissionBinding
 import com.example.souzmerch.ui.fragments.BaseFragment
 import com.example.souzmerch.ui.fragments.merchNavigationFragment.ShopsViewModel
 import com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsViewModel
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import java.io.File
 
 class ApproveMissionFragment :
     BaseFragment<FragmentApproveMissionBinding>(FragmentApproveMissionBinding::inflate) {
@@ -34,11 +40,24 @@ class ApproveMissionFragment :
             }
         }
 
-        missionDetailsViewModel.mission.observe(viewLifecycleOwner) {
+        missionDetailsViewModel.mission.observe(viewLifecycleOwner) { mission ->
             with(binding) {
-                etTask.setText(it.product)
-                etAmount.setText(it.amount.toString())
-                etComment.setText(it.comment)
+                etTask.setText(mission.product)
+                etAmount.setText(mission.amount.toString())
+                etComment.setText(mission.comment)
+
+                val storageRef = mission.photo?.let { photo ->
+                    Firebase.storage.reference.child("file").child(
+                        photo
+                    )
+                }
+
+                val localFile = File.createTempFile("tempImage", "jpg")
+                storageRef?.getFile(localFile)?.addOnSuccessListener {
+                    val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+                    binding.ivReport.setImageBitmap(bitmap)
+                }
+                Log.d("develop", "ref: $storageRef")
             }
         }
 
@@ -55,5 +74,6 @@ class ApproveMissionFragment :
             )
             findNavController().popBackStack()
         }
+
     }
 }
