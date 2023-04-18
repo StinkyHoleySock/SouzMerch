@@ -68,4 +68,15 @@ class MissionDetailsViewModel : ViewModel() {
                 Log.e("updateMissionComment", "Error updating comment", e)
             }
     }
+
+    fun updateMissionPhoto(missionId: String, photo: String) {
+        db.collection("mission").document(missionId)
+            .update("photo", photo)
+            .addOnSuccessListener {
+                Log.d("updateMissionComment", "Photo updated successfully")
+            }
+            .addOnFailureListener { e ->
+                Log.e("updateMissionComment", "Error updating photo", e)
+            }
+    }
 }

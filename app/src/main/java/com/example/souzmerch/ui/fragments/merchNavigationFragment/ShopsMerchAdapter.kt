@@ -44,7 +44,6 @@ class ShopsMerchAdapter(
         holder.bind(shop)
     }
 
-
     // количество элементов в списке заданий
     override fun getItemCount() = shopList.size
 }

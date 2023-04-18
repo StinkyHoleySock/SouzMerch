@@ -39,7 +39,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         with(binding) {
 
-
             btnRegister.setOnClickListener {
                 when {
                     //Валидация полей

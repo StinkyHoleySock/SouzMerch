@@ -1,9 +1,7 @@
 package com.example.souzmerch.ui.fragments.merchNavigationFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +9,6 @@ import com.example.souzmerch.data.model.Shop
 import com.example.souzmerch.databinding.FragmentMerchNavigationBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.ui.fragments.BaseFragment
-import com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 
 class MerchNavigationFragment :
@@ -25,8 +22,9 @@ class MerchNavigationFragment :
         }
     }
 
-    private fun navigateToMissionsList(it: Shop) {
-        val action = MerchNavigationFragmentDirections.actionMerchNavigationFragmentToMissionsFragment(it.id)
+    private fun navigateToMissionsList(shop: Shop) {
+        val action =
+            MerchNavigationFragmentDirections.actionMerchNavigationFragmentToMissionsFragment(shop.id)
         findNavController().navigate(action)
     }
 
@@ -35,7 +33,7 @@ class MerchNavigationFragment :
         shopsViewModel = ViewModelProvider(this)[ShopsViewModel::class.java]
         val user = FirebaseAuth.getInstance().currentUser
 
-        user?.uid?.let { shopsViewModel.getShopsForMerchandiser(it) }
+        user?.uid?.let { id -> shopsViewModel.getShopsForMerchandiser(id) }
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(
                 context,

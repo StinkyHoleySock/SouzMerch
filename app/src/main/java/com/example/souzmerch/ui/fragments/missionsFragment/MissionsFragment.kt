@@ -33,6 +33,7 @@ class MissionsFragment : BaseFragment<FragmentMyMissonsBinding>(FragmentMyMisson
         missionsViewModel = ViewModelProvider(this)[MissionsViewModel::class.java]
 
         missionsViewModel.getMissions(args.shopId)
+
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(
                 context,
@@ -41,8 +42,8 @@ class MissionsFragment : BaseFragment<FragmentMyMissonsBinding>(FragmentMyMisson
             adapter = missionsAdapter
         }
 
-        missionsViewModel.missionList.observe(viewLifecycleOwner) {
-            missionsAdapter.setData(it)
+        missionsViewModel.missionList.observe(viewLifecycleOwner) { missions ->
+            missionsAdapter.setData(missions)
         }
 
         missionsViewModel.isLoading.observe(viewLifecycleOwner) {

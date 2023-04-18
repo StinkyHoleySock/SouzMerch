@@ -65,6 +65,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.5'
     implementation 'com.google.firebase:firebase-messaging:23.1.2'
 
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+
     implementation 'com.android.volley:volley:1.2.1'
 
     implementation 'androidx.core:core-ktx:1.7.0'
