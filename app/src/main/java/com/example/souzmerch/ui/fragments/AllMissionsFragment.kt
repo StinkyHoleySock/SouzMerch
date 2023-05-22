@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.souzmerch.data.model.Mission
 import com.example.souzmerch.databinding.FragmentMissionsToVerificationBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
-import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.adapters.MissionsAdapter
 import com.example.souzmerch.ui.fragments.allMissionsFragment.AllMissionsFragmentDirections
 import com.example.souzmerch.ui.viewModels.MissionsViewModel

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.souzmerch.R
 import com.example.souzmerch.databinding.FragmentIntermediateBinding
-import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.viewModels.RoleViewModel
 import com.google.firebase.auth.FirebaseAuth
 

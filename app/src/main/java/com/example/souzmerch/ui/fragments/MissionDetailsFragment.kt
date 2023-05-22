@@ -23,7 +23,7 @@ import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.databinding.FragmentMissionDetailsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.shared.extensions.convertLongToTime
-import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsFragmentArgs
 import com.example.souzmerch.ui.viewModels.MissionDetailsViewModel
 import com.google.firebase.ktx.Firebase

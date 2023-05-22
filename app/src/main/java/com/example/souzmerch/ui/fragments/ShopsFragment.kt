@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.souzmerch.data.model.Shop
 import com.example.souzmerch.databinding.FragmentShopsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
-import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.adapters.ShopsMerchAdapter
 import com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragmentDirections
 import com.example.souzmerch.ui.viewModels.ShopsViewModel

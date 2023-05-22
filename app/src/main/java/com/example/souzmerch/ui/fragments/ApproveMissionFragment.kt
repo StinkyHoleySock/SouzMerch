@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.databinding.FragmentApproveMissionBinding
-import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.fragments.approveMissionFragment.ApproveMissionFragmentArgs
 import com.example.souzmerch.ui.viewModels.ShopsViewModel
 import com.example.souzmerch.ui.viewModels.MissionDetailsViewModel

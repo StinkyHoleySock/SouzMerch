@@ -10,7 +10,7 @@ import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.data.model.Mission
 import com.example.souzmerch.databinding.FragmentCreateMissionBinding
 import com.example.souzmerch.shared.utils.ToastError
-import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.fragments.createMissionFragment.CreateMissionFragmentArgs
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
