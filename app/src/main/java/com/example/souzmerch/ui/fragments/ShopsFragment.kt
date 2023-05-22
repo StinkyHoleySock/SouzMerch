@@ -10,7 +10,6 @@ import com.example.souzmerch.databinding.FragmentShopsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.ui.BaseFragment
 import com.example.souzmerch.ui.adapters.ShopsMerchAdapter
-import com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragmentDirections
 import com.example.souzmerch.ui.viewModels.ShopsViewModel
 
 class ShopsFragment : BaseFragment<FragmentShopsBinding>(FragmentShopsBinding::inflate) {

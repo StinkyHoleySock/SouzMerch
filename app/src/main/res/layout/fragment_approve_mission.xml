@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/main_container"
@@ -11,22 +12,11 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
-            android:textSize="20sp"
-            tools:text="Москва, Марфино; Иванова Любовь" />
-
         <ImageView
             android:id="@+id/iv_report"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,9 +85,10 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:background="#FB0000"
+            android:background="@drawable/buttonshape_red"
             android:padding="8dp"
-            android:text="@string/add_comment" />
+            android:text="@string/add_comment"
+            android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_approve"
@@ -106,7 +97,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:background="#37FF00"
+            android:background="@drawable/buttonshape"
             android:padding="8dp"
             android:text="@string/approve" />
 

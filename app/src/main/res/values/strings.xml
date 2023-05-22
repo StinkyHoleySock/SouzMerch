@@ -24,6 +24,7 @@
     <string name="et_amount">Кол-во</string>
     <string name="new_task">Новое задание</string>
     <string name="my_tasks">Мои задания на торговой точке:</string>
+    <string name="all_tasks">Все задания на торговой точке:</string>
     <string name="task_name">Название:</string>
     <string name="task_date">Дата:</string>
     <string name="task_status">Статус:</string>

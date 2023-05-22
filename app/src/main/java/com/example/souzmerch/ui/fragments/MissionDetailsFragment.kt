@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
@@ -23,9 +22,10 @@ import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.databinding.FragmentMissionDetailsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.shared.extensions.convertLongToTime
+import com.example.souzmerch.shared.utils.DistanceUtil
 import com.example.souzmerch.ui.BaseFragment
-import com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsFragmentArgs
 import com.example.souzmerch.ui.viewModels.MissionDetailsViewModel
+import com.example.souzmerch.ui.viewModels.ShopsViewModel
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
@@ -35,7 +35,10 @@ class MissionDetailsFragment :
     val args: MissionDetailsFragmentArgs by navArgs()
     var photo: String = ""
     var userLocation: String = ""
+    var userLat: Double = 0.0
+    var userLon: Double = 0.0
     lateinit var missionDetailsViewModel: MissionDetailsViewModel
+    lateinit var shopViewModel: ShopsViewModel
 
     val storageRef = Firebase.storage.reference;
 
@@ -80,6 +83,7 @@ class MissionDetailsFragment :
             }
 
         missionDetailsViewModel = ViewModelProvider(this)[MissionDetailsViewModel::class.java]
+        shopViewModel = ViewModelProvider(this)[ShopsViewModel::class.java]
 
         missionDetailsViewModel.getMission(args.missionId)
 
@@ -99,7 +103,6 @@ class MissionDetailsFragment :
                 }
                 MissionState.PROGRESS.name -> {
                     binding.btnSave.text = "Сохранить"
-                    binding.btnSave.setBackgroundColor(Color.BLUE)
 
                     binding.ivTaskImage.setOnClickListener {
                         // PICK INTENT picks item from data
@@ -114,24 +117,29 @@ class MissionDetailsFragment :
                 MissionState.VERIFICATION.name -> {
                     binding.btnSave.text = "На проверке"
                     binding.btnSave.isEnabled = false
-                    binding.btnSave.setBackgroundColor(Color.YELLOW)
-                    binding.btnSave.setTextColor(Color.BLACK)
                 }
                 MissionState.COMPLETE.name -> {
                     binding.btnSave.text = "Выполнено"
                     binding.btnSave.isEnabled = false
-                    binding.btnSave.setBackgroundColor(Color.GREEN)
-                    binding.btnSave.setTextColor(Color.BLACK)
                 }
             }
         }
 
         binding.btnSave.setOnClickListener {
             val mission = missionDetailsViewModel.mission.value
+            val results = FloatArray(3)
+            val shop = shopViewModel.shop.value
+            DistanceUtil.computeDistanceAndBearing(
+                userLat,
+                userLon,
+                shop?.lat?.toDouble() ?: 0.0,
+                shop?.lon?.toDouble() ?: 0.0,
+                results
+            )
             when (mission?.status) {
                 MissionState.CREATE.name -> {
                     val startTime = System.currentTimeMillis().toString()
-                    if (userLocation != "") {
+                    if (userLocation != "" && results[0] < 100) {
 
                         missionDetailsViewModel.updateMissionStatus(
                             args.missionId,
@@ -211,6 +219,8 @@ class MissionDetailsFragment :
             0f
         ) { location ->
             userLocation = location.latitude.toString() + " " + location.longitude.toString()
+            userLat = location.latitude
+            userLon = location.longitude
             Log.d("develop", "loc ->: $location")
         }
     }

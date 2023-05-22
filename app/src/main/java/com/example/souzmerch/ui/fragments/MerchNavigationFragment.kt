@@ -10,7 +10,6 @@ import com.example.souzmerch.databinding.FragmentMerchNavigationBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.ui.adapters.ShopsMerchAdapter
 import com.example.souzmerch.ui.BaseFragment
-import com.example.souzmerch.ui.fragments.merchNavigationFragment.MerchNavigationFragmentDirections
 import com.example.souzmerch.ui.viewModels.ShopsViewModel
 import com.google.firebase.auth.FirebaseAuth
 

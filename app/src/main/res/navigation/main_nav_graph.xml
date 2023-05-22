@@ -62,7 +62,11 @@
     <fragment
         android:id="@+id/customerNavigationFragment"
         android:name="com.example.souzmerch.ui.fragments.CustomerNavigationFragment"
-        android:label="CustomerNavigationFragment" />
+        android:label="CustomerNavigationFragment" >
+        <action
+            android:id="@+id/action_customerNavigationFragment_to_shopsBySupervisorFragment"
+            app:destination="@id/shopsBySupervisorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shopsFragment"
         android:name="com.example.souzmerch.ui.fragments.ShopsFragment"
@@ -107,6 +111,9 @@
             app:destination="@id/missionsFragment" />
         <argument android:name="missionId"
             app:argType="string" />
+        <argument
+            android:name="shopId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/allMissionsFragment"
@@ -122,6 +129,25 @@
         android:label="ApproveMissionFragment" >
         <argument
             android:name="shopId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopsBySupervisorFragment"
+        android:name="com.example.souzmerch.ui.fragments.AllTasksInShopFragment"
+        android:label="ShopsBySupervisorFragment" >
+        <argument
+            android:name="shopId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_shopsBySupervisorFragment_to_supervisorMissionDetails"
+            app:destination="@id/supervisorMissionDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/supervisorMissionDetails"
+        android:name="com.example.souzmerch.ui.fragments.SupervisorMissionDetails"
+        android:label="SupervisorMissionDetails" >
+        <argument
+            android:name="missionId"
             app:argType="string" />
     </fragment>
 </navigation>
