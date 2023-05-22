@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.approveMissionFragment
+package com.example.souzmerch.ui.fragments
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -7,12 +7,12 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
 import com.example.souzmerch.data.enums.MissionState
 import com.example.souzmerch.databinding.FragmentApproveMissionBinding
 import com.example.souzmerch.ui.fragments.BaseFragment
-import com.example.souzmerch.ui.fragments.merchNavigationFragment.ShopsViewModel
-import com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsViewModel
+import com.example.souzmerch.ui.fragments.approveMissionFragment.ApproveMissionFragmentArgs
+import com.example.souzmerch.ui.viewModels.ShopsViewModel
+import com.example.souzmerch.ui.viewModels.MissionDetailsViewModel
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File

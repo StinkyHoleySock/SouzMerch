@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.souzmerch.ui.fragments.loginFragment.LoginFragment"
+        android:name="com.example.souzmerch.ui.fragments.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_fragmentIntermediate"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentIntermediate"
-        android:name="com.example.souzmerch.ui.fragments.intermediateFragment.IntermediateFragment"
+        android:name="com.example.souzmerch.ui.fragments.IntermediateFragment"
         android:label="FragmentIntermediate" >
         <action
             android:id="@+id/action_fragmentIntermediate_to_merchNavigationFragment"
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/merchNavigationFragment"
-        android:name="com.example.souzmerch.ui.fragments.merchNavigationFragment.MerchNavigationFragment"
+        android:name="com.example.souzmerch.ui.fragments.MerchNavigationFragment"
         android:label="MerchNavigationFragment" >
         <action
             android:id="@+id/action_merchNavigationFragment_to_missionsFragment"
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/executorNavigationFragment"
-        android:name="com.example.souzmerch.ui.fragments.executorNavigationFragment.ExecutorNavigationFragment"
+        android:name="com.example.souzmerch.ui.fragments.ExecutorNavigationFragment"
         android:label="ExecutorNavigationFragment" >
         <action
             android:id="@+id/action_executorNavigationFragment_to_shopsFragment"
@@ -61,11 +61,11 @@
     </fragment>
     <fragment
         android:id="@+id/customerNavigationFragment"
-        android:name="com.example.souzmerch.ui.fragments.customerNavigationFragment.CustomerNavigationFragment"
+        android:name="com.example.souzmerch.ui.fragments.CustomerNavigationFragment"
         android:label="CustomerNavigationFragment" />
     <fragment
         android:id="@+id/shopsFragment"
-        android:name="com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragment"
+        android:name="com.example.souzmerch.ui.fragments.ShopsFragment"
         android:label="ShopsFragment" >
         <action
             android:id="@+id/action_shopsFragment_to_crateMissionFragment"
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/crateMissionFragment"
-        android:name="com.example.souzmerch.ui.fragments.createMissionFragment.CreateMissionFragment"
+        android:name="com.example.souzmerch.ui.fragments.CreateMissionFragment"
         android:label="CrateMissionFragment" >
         <action
             android:id="@+id/action_crateMissionFragment_to_shopsFragment"
@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/missionsFragment"
-        android:name="com.example.souzmerch.ui.fragments.missionsFragment.MissionsFragment"
+        android:name="com.example.souzmerch.ui.fragments.MissionsFragment"
         android:label="MissionsFragment" >
         <action
             android:id="@+id/action_missionsFragment_to_missionDetailsFragment"
@@ -96,11 +96,11 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.souzmerch.ui.fragments.registerFragment.RegisterFragment"
+        android:name="com.example.souzmerch.ui.fragments.RegisterFragment"
         android:label="RegisterFragment" />
     <fragment
         android:id="@+id/missionDetailsFragment"
-        android:name="com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsFragment"
+        android:name="com.example.souzmerch.ui.fragments.MissionDetailsFragment"
         android:label="MissionDetailsFragment" >
         <action
             android:id="@+id/action_missionDetailsFragment_to_missionsFragment"
@@ -110,7 +110,7 @@
     </fragment>
     <fragment
         android:id="@+id/allMissionsFragment"
-        android:name="com.example.souzmerch.ui.fragments.allMissionsFragment.AllMissionsFragment"
+        android:name="com.example.souzmerch.ui.fragments.AllMissionsFragment"
         android:label="AllMissionsFragment" >
         <action
             android:id="@+id/action_allMissionsFragment_to_approveMissionFragment"
@@ -118,7 +118,7 @@
     </fragment>
     <fragment
         android:id="@+id/approveMissionFragment"
-        android:name="com.example.souzmerch.ui.fragments.approveMissionFragment.ApproveMissionFragment"
+        android:name="com.example.souzmerch.ui.fragments.ApproveMissionFragment"
         android:label="ApproveMissionFragment" >
         <argument
             android:name="shopId"

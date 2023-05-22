@@ -1,7 +1,6 @@
-package com.example.souzmerch.ui.fragments.createMissionFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
@@ -12,6 +11,7 @@ import com.example.souzmerch.data.model.Mission
 import com.example.souzmerch.databinding.FragmentCreateMissionBinding
 import com.example.souzmerch.shared.utils.ToastError
 import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.fragments.createMissionFragment.CreateMissionFragmentArgs
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 

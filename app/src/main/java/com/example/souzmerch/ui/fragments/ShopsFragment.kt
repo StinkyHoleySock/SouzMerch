@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.merchNavigationFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -6,34 +6,32 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.souzmerch.data.model.Shop
-import com.example.souzmerch.databinding.FragmentMerchNavigationBinding
+import com.example.souzmerch.databinding.FragmentShopsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.ui.fragments.BaseFragment
-import com.google.firebase.auth.FirebaseAuth
+import com.example.souzmerch.ui.adapters.ShopsMerchAdapter
+import com.example.souzmerch.ui.fragments.shopsFragment.ShopsFragmentDirections
+import com.example.souzmerch.ui.viewModels.ShopsViewModel
 
-class MerchNavigationFragment :
-    BaseFragment<FragmentMerchNavigationBinding>(FragmentMerchNavigationBinding::inflate) {
-
+class ShopsFragment : BaseFragment<FragmentShopsBinding>(FragmentShopsBinding::inflate) {
     private lateinit var shopsViewModel: ShopsViewModel
 
     private val shopsAdapter by lazy {
         ShopsMerchAdapter() {
-            navigateToMissionsList(it)
+            navigateToCreateMission(it)
         }
     }
 
-    private fun navigateToMissionsList(shop: Shop) {
-        val action =
-            MerchNavigationFragmentDirections.actionMerchNavigationFragmentToMissionsFragment(shop.id)
+    private fun navigateToCreateMission(shop: Shop) {
+        val action = ShopsFragmentDirections.actionShopsFragmentToCrateMissionFragment(shop.id)
         findNavController().navigate(action)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         shopsViewModel = ViewModelProvider(this)[ShopsViewModel::class.java]
-        val user = FirebaseAuth.getInstance().currentUser
 
-        user?.uid?.let { id -> shopsViewModel.getShopsForMerchandiser(id) }
+        shopsViewModel.getAllShops()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(
                 context,

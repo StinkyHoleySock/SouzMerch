@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.loginFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.souzmerch.R
 import com.example.souzmerch.databinding.FragmentLoginBinding
+import com.example.souzmerch.ui.fragments.loginFragment.LoginFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

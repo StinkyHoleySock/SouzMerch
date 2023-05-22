@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.intermediateFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.souzmerch.R
 import com.example.souzmerch.databinding.FragmentIntermediateBinding
 import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.viewModels.RoleViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class IntermediateFragment :

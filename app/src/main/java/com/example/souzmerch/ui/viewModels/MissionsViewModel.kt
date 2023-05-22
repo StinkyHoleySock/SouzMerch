@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.missionsFragment
+package com.example.souzmerch.ui.viewModels
 
 import android.util.Log
 import androidx.lifecycle.LiveData

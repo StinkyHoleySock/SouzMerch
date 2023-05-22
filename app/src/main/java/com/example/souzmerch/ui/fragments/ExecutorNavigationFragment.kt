@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.executorNavigationFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
 import android.view.View

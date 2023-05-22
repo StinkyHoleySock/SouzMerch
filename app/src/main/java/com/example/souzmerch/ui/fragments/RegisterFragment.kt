@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.registerFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.customerNavigationFragment
+package com.example.souzmerch.ui.fragments
 
 import com.example.souzmerch.databinding.FragmentCustomerNavigationBinding
 import com.example.souzmerch.ui.fragments.BaseFragment

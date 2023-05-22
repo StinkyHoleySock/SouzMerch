@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.shopsFragment
+package com.example.souzmerch.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

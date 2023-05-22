@@ -1,22 +1,24 @@
-package com.example.souzmerch.ui.fragments.allMissionsFragment
+package com.example.souzmerch.ui.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.souzmerch.data.model.Mission
-import com.example.souzmerch.databinding.FragmentMissionsToVerificationBinding
+import com.example.souzmerch.databinding.FragmentMyMissonsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
+import com.example.souzmerch.ui.adapters.MissionsAdapter
 import com.example.souzmerch.ui.fragments.BaseFragment
-import com.example.souzmerch.ui.fragments.missionsFragment.MissionsAdapter
-import com.example.souzmerch.ui.fragments.missionsFragment.MissionsViewModel
+import com.example.souzmerch.ui.fragments.missionsFragment.MissionsFragmentArgs
+import com.example.souzmerch.ui.fragments.missionsFragment.MissionsFragmentDirections
+import com.example.souzmerch.ui.viewModels.MissionsViewModel
 
-class AllMissionsFragment :
-    BaseFragment<FragmentMissionsToVerificationBinding>(FragmentMissionsToVerificationBinding::inflate) {
+class MissionsFragment : BaseFragment<FragmentMyMissonsBinding>(FragmentMyMissonsBinding::inflate) {
 
     private lateinit var missionsViewModel: MissionsViewModel
-
+    private val args: MissionsFragmentArgs by navArgs()
     private val missionsAdapter by lazy {
         MissionsAdapter() {
             navigateToMissionDetails(it)
@@ -25,7 +27,7 @@ class AllMissionsFragment :
 
     private fun navigateToMissionDetails(it: Mission) {
         val action =
-            AllMissionsFragmentDirections.actionAllMissionsFragmentToApproveMissionFragment(it.id)
+            MissionsFragmentDirections.actionMissionsFragmentToMissionDetailsFragment(it.id)
         findNavController().navigate(action)
     }
 
@@ -33,7 +35,8 @@ class AllMissionsFragment :
         super.onViewCreated(view, savedInstanceState)
         missionsViewModel = ViewModelProvider(this)[MissionsViewModel::class.java]
 
-        missionsViewModel.getUnverifiedMissions()
+        missionsViewModel.getMissions(args.shopId)
+
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(
                 context,
@@ -42,8 +45,8 @@ class AllMissionsFragment :
             adapter = missionsAdapter
         }
 
-        missionsViewModel.missionList.observe(viewLifecycleOwner) {
-            missionsAdapter.setData(it)
+        missionsViewModel.missionList.observe(viewLifecycleOwner) { missions ->
+            missionsAdapter.setData(missions)
         }
 
         missionsViewModel.isLoading.observe(viewLifecycleOwner) {

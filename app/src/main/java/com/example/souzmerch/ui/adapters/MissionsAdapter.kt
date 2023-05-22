@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.missionsFragment
+package com.example.souzmerch.ui.adapters
 
 import android.graphics.Color
 import android.view.LayoutInflater

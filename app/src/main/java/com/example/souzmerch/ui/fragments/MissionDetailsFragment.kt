@@ -1,4 +1,4 @@
-package com.example.souzmerch.ui.fragments.missionDetailsFragment
+package com.example.souzmerch.ui.fragments
 
 import android.Manifest
 import android.content.Context
@@ -24,6 +24,8 @@ import com.example.souzmerch.databinding.FragmentMissionDetailsBinding
 import com.example.souzmerch.shared.extensions.applyVisibility
 import com.example.souzmerch.shared.extensions.convertLongToTime
 import com.example.souzmerch.ui.fragments.BaseFragment
+import com.example.souzmerch.ui.fragments.missionDetailsFragment.MissionDetailsFragmentArgs
+import com.example.souzmerch.ui.viewModels.MissionDetailsViewModel
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
